@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Yourself, Fool</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='/css/style.css')}}">
+</head>
+<body>
+    <div id=header> 
+    <h1>Let's play checkers!  Better bring your best game!</h1>
+    </div>
+
+    <div id="container">
+<!--         
+        <div id="row01"> 
+            {% for i in range(0, horizDispCount): %}
+                <div class="aquaBox"></div>
+            {% endfor %}    
+        </div> 
+        
+        <div class="horiz">     
+            {% for i in range(0, horizDispCount): %}
+                <div class="purpleBox"></div>
+            {% endfor %}   
+        </div>
+
+        <div class="horiz"> 
+            {% for i in range(0, horizDispCount): %}
+            {%  if i % 2 == 0: %}
+            <div class="box1"></div>
+            {%  else: %}
+            <div class="box2"></div> 
+            {% endif %}   
+            {% endfor %}   
+        </div> -->
+        <div class="row001"> 
+            <div class="{{displayValStyle}}"> 
+                <p class="validationText">{{displayValMsg}}</p>
+            </div>
+        </div>
+
+        <div id="checkerBoard"> 
+        <!-- holy shit, below is working! now, just get the styling corrected, need diff styles for vert and horiz, i think-->
+            <div class="vert"> 
+                {%  for v in range(0, vertDispCount): %}
+                {%      if v % 2 == 0: %}
+                <div class="horiz"> 
+                {%          for h in range(0, horizDispCount): %}
+                
+                {%              if h % 2 == 0: %}
+                                <div class="box1" style="background-color: {{displayColor1}};"></div>
+                {%              else: %}
+                                <div class="box2" style="background-color: {{displayColor2}};"></div> 
+                {%              endif %} 
+                {%          endfor %}   
+                </div>
+                {%      else: %} 
+                <div class="horiz"> 
+                {%          for h in range(0, horizDispCount): %}
+                {%              if h % 2 == 0: %}
+                                <div class="box2" style="background-color: {{displayColor2}};"></div>
+                {%              else: %}
+                                <div class="box1" style="background-color: {{displayColor1}};"></div> 
+                {%              endif %} 
+                {%          endfor %}   
+                </div>
+                {%      endif %} 
+                {%  endfor %}   
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
